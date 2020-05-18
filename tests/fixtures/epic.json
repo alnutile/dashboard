@@ -1,0 +1,11 @@
+{
+    "id": 284447,
+    "key": "FOO-1842",
+    "self": "https:\/\/foo.atlassian.net\/rest\/agile\/1.0\/epic\/284447",
+    "name": "This Epic Name",
+    "done": false,
+    "summary": "This Epic Summary",
+    "color": {
+        "key": "color_3"
+    }
+}
