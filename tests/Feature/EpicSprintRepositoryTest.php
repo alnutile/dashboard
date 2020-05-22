@@ -28,12 +28,12 @@ class EpicSprintRepositoryTest extends TestCase
 
         $this->mock(EpicService::class, function($mock) {
             $data = File::get(base_path("tests/fixtures/epic_issues.json"));
-            $data = json_decode($data, TRUE);
+            $data = json_decode($data, true);
             $data = new ArrayObject($data);
             /** @var  Mockery::mock $mock */
             $mock->shouldReceive("getEpicIssues")->once()->andReturn($data);
             $data = File::get(base_path("tests/fixtures/epic.json"));
-            $data = json_decode($data, TRUE);
+            $data = json_decode($data, true);
             $epic = new Epic();
             $epic->name = $data['name'];
             $epic->done = $data['done'];
@@ -54,8 +54,35 @@ class EpicSprintRepositoryTest extends TestCase
         $record = EpicSprintRecord::where("jira_key", "FOO-1842")->first();
 
         $this->assertNotEmpty($record);
+    }
+
+    public function testGetsEpicFromDbNotApi() {
+
+        factory(\App\EpicSprintRecord::class)->create(
+            ['jira_key' => "FOO-1842", "name" => "This Epic Name"]
+        );
+
+        $this->instance(EpicService::class, Mockery::mock(EpicService::class, function ($mock) {
+            $data = File::get(base_path("tests/fixtures/epic_issues.json"));
+            $data = json_decode($data, true);
+            $data = new ArrayObject($data);
+            /** @var Mockery::mock $mock */
+            $mock->shouldReceive("getEpicIssues")->once()->andReturn($data);
+            $mock->shouldReceive('getEpic')->never();
+        }));  
+
+        $client = App::make(EpicSprintRepository::class);
+
+        $results = $client->getEpicSprintAndInfo("FOO-1842");
         
+        $this->assertNotEmpty($results->name);
         
+        $this->assertEquals("This Epic Name", $results->name);
+        
+        $record = EpicSprintRecord::where("jira_key", "FOO-1842")->first();
+
+        $this->assertNotEmpty($record);
+
     }
 
     public function testHasIssuesWithEpic() {
@@ -65,7 +92,7 @@ class EpicSprintRepositoryTest extends TestCase
     public function testDefaultEpicGetter()
     {
         $data = File::get(base_path("tests/fixtures/epic_issues.json"));
-        $data = json_decode($data, TRUE);
+        $data = json_decode($data, true);
         $data = new ArrayObject($data);
         //instantiate
 
