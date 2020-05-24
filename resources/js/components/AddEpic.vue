@@ -21,16 +21,6 @@
                     <b-button @click="submit">import</b-button>
                 </b-form>
             </transition>
-            <b-alert
-                v-model="importing_message"
-                class="position-fixed fixed-bottom m-0 rounded-0"
-                style="z-index: 2000;"
-                variant="primary"
-                dismissible
-                >
-                Importing {{ form.jira_key }}
-            </b-alert>
-
         </div>
     </section>
 </template>
@@ -43,7 +33,6 @@ export default {
     data() {
         return {
             add_jira: false,
-            importing_message: false,
             form: {
                 jira_type: null
             },
@@ -56,13 +45,30 @@ export default {
         }
     },
     methods: {
+        makeToast(variant = null, message) {
+            this.$bvToast.toast(message, {
+            variant: variant,
+            solid: true,
+            class: "position-fixed fixed-bottom m-0 rounded-0",
+            style: "z-index: 2000;"
+            })
+        },
        addJiraShow() {
            this.add_jira = !this.add_jira;
        },
        submit(evt) {
            evt.preventDefault()
-           console.log("Submit")
-           this.importing_message = true;
+           this.makeToast("primary", `Importing ${this.form.jira_key}`)
+           axios.post("/api/epic_stories", this.form).then(results => {
+               this.$store.commit("addEpicStory", results.data);
+                this.makeToast("success", `Imported ${this.form.jira_key}`)
+                console.log(results)
+           }).catch(e => {
+               this.message_color = "success"
+               console.log(e)
+               this.status_message = `Error with import`
+               this.makeToast("error", `Error with import`)
+           });
        } 
     }
 }

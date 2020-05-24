@@ -22,4 +22,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post("/api/epic_stories", 'EpicSprintCreateController');
+Route::middleware('auth')->group(function(){
+    Route::post("/api/epic_stories", 'EpicSprintCreateController');
+});
+
+

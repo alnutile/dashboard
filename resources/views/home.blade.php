@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="rows">
+        <div class="col-md-12">
+            <add-epic></add-epic>
+        </div>
+    </div>
+    <div class="rows">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Dashboard</div>
@@ -12,8 +17,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <add-epic></add-epic>
                 </div>
             </div>
         </div>

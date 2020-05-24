@@ -16,8 +16,9 @@ class EpicSprintCreateController extends Controller
         );
 
         try {
+            /** @var EpicSprintRepository $results */
             $results = EpicSprintRepository::getEpicSprintAndInfo($request->jira_key);
-            return response()->json($results);
+            return response()->json($results->getEpic());
         } catch(\Exception $e) {
             Log::error($e);
             abort(400, $message="Error creating Epic");

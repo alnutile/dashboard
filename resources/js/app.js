@@ -8,6 +8,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Install BootstrapVue
@@ -34,6 +38,23 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+const store = new Vuex.Store({
+    state: {
+      epic_stories: []
+    },
+    getters: {
+      epic_stories: state => {
+        return state.epic_stories
+      }
+    },
+    mutations: {
+        addEpicStory (state, epic_story) {
+            state.epic_stories.push(epic_story)
+        }
+    }
+  })
+
 const app = new Vue({
     el: '#app',
+    store
 });
