@@ -47,7 +47,4 @@ class EpicSprintCreateControllerTest extends TestCase
         $this->assertNotEmpty($record);
     }
 
-    public function testCreateApiError() {
-
-    }
 }
