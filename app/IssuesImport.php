@@ -35,7 +35,8 @@ class IssuesImport
             [
                 "epic_sprint_record_id" => $this->epic->id,
                 "name" => $issue->fields->summary,
-                "jira_description" => ($issue->fields->description != null) ? $issue->fields->description->content : null,
+                "jira_description" => ($issue->fields->description != null) ?
+                    $issue->fields->description->content : null,
                 "seconds" => $issue->fields->timeTracking->originalEstimateSeconds,
                 "jira_key" => $issue->key,
                 'jira_status' => $issue->fields->status->name,
