@@ -18,10 +18,10 @@ class EpicSprintCreateControllerTest extends TestCase
 
     public function testCreateApi()
     {
-        $this->mock(EpicService::class, function($mock) {
-            $data = File::get(base_path("tests/fixtures/epic_issues.json"));
-            $data = json_decode($data, true);
-            $data = new ArrayObject($data);
+        $user = factory(\App\User::class)->create();
+        $this->be($user);
+        $this->mock(EpicService::class, function ($mock) {
+            $data = new ArrayObject([]);
             /** @var  Mockery::mock $mock */
             $mock->shouldReceive("getEpicIssues")->once()->andReturn($data);
             $data = File::get(base_path("tests/fixtures/epic.json"));
@@ -37,7 +37,7 @@ class EpicSprintCreateControllerTest extends TestCase
 
         $response = $this->json('POST', '/api/epic_stories', [
             'jira_type' => "epic",
-            'jira_key' => "CAP-555"           
+            'jira_key' => "CAP-555"
         ]);
 
         $response->assertStatus(200);
@@ -46,5 +46,4 @@ class EpicSprintCreateControllerTest extends TestCase
 
         $this->assertNotEmpty($record);
     }
-
 }

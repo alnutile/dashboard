@@ -14,6 +14,7 @@ $factory->define(Issue::class, function (Faker $faker) {
             return factory(EpicSprintRecord::class)->create()->id;
         },
         "seconds" => $faker->randomNumber(),
+        "jira_status" => "open",
         "jira_key" => sprintf("FOO-%s",  $faker->randomNumber()),
         "jira_id" => $faker->randomNumber(),
     ];

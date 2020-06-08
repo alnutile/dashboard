@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(JiraArrayConfigurationInterface::class, function() {
+        $this->app->singleton(JiraArrayConfigurationInterface::class, function () {
             return new ArrayConfiguration(
                 [
                     'jiraHost' => config("jira.host"),

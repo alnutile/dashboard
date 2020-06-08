@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 namespace App;
 
-interface JiraArrayConfigurationInterface {
+interface JiraArrayConfigurationInterface
+{
 
 
 

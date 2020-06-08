@@ -98,22 +98,4 @@ class EpicSprintRepositoryTest extends TestCase
 
         $record = EpicSprintRecord::where("jira_key", "FOO-1842")->first();
     }
-
-    public function testDefaultEpicGetter()
-    {
-        $data = File::get(base_path("tests/fixtures/epic_issues.json"));
-        $data = json_decode($data, true);
-        $data = new ArrayObject($data);
-        //instantiate
-
-        $this->mock(EpicService::class, function ($mock) use ($data) {
-            $mock->shouldReceive("getEpicIssues")->once()->andReturn($data);
-        });
-
-        $client = App::make(EpicSprintRepository::class);
-
-        $results = $client->getEpicAndInfo("FOO-1842");
-
-        $this->assertNotEmpty($results->getIssues());
-    }
 }
