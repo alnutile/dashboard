@@ -19,8 +19,9 @@ class CreateIssuesTable extends Migration
             $table->integer("epic_sprint_record_id");
             $table->integer("seconds");
             $table->string("jira_key");
-            $table->string("jira_id");
-            $table->text("jira_description");
+            $table->integer("jira_id");
+            $table->string("jira_status");
+            $table->text("jira_description")->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

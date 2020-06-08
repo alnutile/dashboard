@@ -14,6 +14,7 @@ use App\EpicSprintRepository;
 use App\Issue;
 use Facades\App\IssuesImport;
 use ArrayObject;
+use stdClass;
 
 class IssuesImportTest extends TestCase
 {
@@ -21,7 +22,6 @@ class IssuesImportTest extends TestCase
 
     public function testCratesIssues()
     {
-
 
         $this->assertLessThan(1, Issue::count());
 
@@ -39,12 +39,12 @@ class IssuesImportTest extends TestCase
             $epic->key = $data['key'];
             $epic->id = $data['id'];
             $epic->summary = $data['summary'];
-            $mock->shouldReceive("getEpic")->once()->andReturn($epic);
+            $mock->shouldReceive("getEpic")->once()->andReturn(new stdClass($epic));
         });
 
         $client = App::make(EpicSprintRepository::class);
 
-        $results = $client->getEpicSprintAndInfo("FOO-1842");
+        $results = $client->getEpicSprintAndInfo("CAP-1842");
 
         IssuesImport::handle($results);
 
@@ -53,26 +53,26 @@ class IssuesImportTest extends TestCase
 
     public function testIssuesNotMadeCauseAlreadyExistedButUpdatedStates()
     {
-        $this->mock(EpicService::class, function ($mock) {
-            $data = File::get(base_path("tests/fixtures/epic_issues.json"));
-            $data = json_decode($data, true);
-            $data = new ArrayObject($data);
-            /** @var  Mockery::mock $mock */
-            $mock->shouldReceive("getEpicIssues")->once()->andReturn($data);
-            $data = File::get(base_path("tests/fixtures/epic.json"));
-            $data = json_decode($data, true);
-            $epic = new Epic();
-            $epic->name = $data['name'];
-            $epic->done = $data['done'];
-            $epic->key = $data['key'];
-            $epic->id = $data['id'];
-            $epic->summary = $data['summary'];
-            $mock->shouldReceive("getEpic")->once()->andReturn($epic);
-        });
+        // $this->mock(EpicService::class, function ($mock) {
+        //     $data = File::get(base_path("tests/fixtures/epic_issues.json"));
+        //     $data = json_decode($data, true);
+        //     $data = new ArrayObject($data);
+        //     /** @var  Mockery::mock $mock */
+        //     $mock->shouldReceive("getEpicIssues")->once()->andReturn($data);
+        //     $data = File::get(base_path("tests/fixtures/epic.json"));
+        //     $data = json_decode($data, true);
+        //     $epic = new Epic();
+        //     $epic->name = $data['name'];
+        //     $epic->done = $data['done'];
+        //     $epic->key = $data['key'];
+        //     $epic->id = $data['id'];
+        //     $epic->summary = $data['summary'];
+        //     $mock->shouldReceive("getEpic")->once()->andReturn($epic);
+        // });
 
         $client = App::make(EpicSprintRepository::class);
 
-        $results = $client->getEpicSprintAndInfo("FOO-1842");
+        $results = $client->getEpicSprintAndInfo("CAP-1842");
 
         IssuesImport::handle($results);
 

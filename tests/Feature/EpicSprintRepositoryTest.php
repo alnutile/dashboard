@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\File;
 use JiraRestApi\Epic\Epic;
 use JiraRestApi\Epic\EpicService;
 use Mockery;
+use App\Issue;
 use stdClass;
 use Tests\TestCase;
 
@@ -23,13 +24,14 @@ class EpicSprintRepositoryTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testCreateEpic() {
+    public function testCreateEpic()
+    {
         //should add Epic to our system if not exist
 
-        $this->mock(EpicService::class, function($mock) {
-            $data = File::get(base_path("tests/fixtures/epic_issues.json"));
-            $data = json_decode($data, true);
-            $data = new ArrayObject($data);
+        $this->mock(EpicService::class, function ($mock) {
+            //$data = File::get(base_path("tests/fixtures/epic_issues.json"));
+            //$data = json_decode($data, true);
+            $data = new ArrayObject([]);
             /** @var  Mockery::mock $mock */
             $mock->shouldReceive("getEpicIssues")->once()->andReturn($data);
             $data = File::get(base_path("tests/fixtures/epic.json"));
@@ -45,48 +47,56 @@ class EpicSprintRepositoryTest extends TestCase
 
         $client = App::make(EpicSprintRepository::class);
 
-        $results = $client->getEpicSprintAndInfo("FOO-1842");
-        
+        $payload = [
+            "number_of_devs" => 1,
+            "jira_key" => "FOO-1842",
+            "jira_type" => "epic",
+            'due_date' => "2020-06-20"
+        ];
+
+        $client->getEpicSprintAndInfo($payload);
+
+        $results = EpicSprintRecord::where("jira_key", "FOO-1842")->first();
+
         $this->assertNotEmpty($results->name);
-        
+        $this->assertNotEmpty($results->due_date);
+        $this->assertNotEmpty($results->number_of_devs);
+        $this->assertNotEmpty($results->jira_type);
+
         $this->assertEquals("This Epic Name", $results->name);
-        
+
         $record = EpicSprintRecord::where("jira_key", "FOO-1842")->first();
 
         $this->assertNotEmpty($record);
+
+        $this->assertEquals(0, Issue::all()->count());
     }
 
-    public function testGetsEpicFromDbNotApi() {
+    public function testGetsEpicFromDbNotApi()
+    {
 
-        factory(\App\EpicSprintRecord::class)->create(
+        $epic = factory(\App\EpicSprintRecord::class)->create(
             ['jira_key' => "FOO-1842", "name" => "This Epic Name"]
         );
 
         $this->instance(EpicService::class, Mockery::mock(EpicService::class, function ($mock) {
-            $data = File::get(base_path("tests/fixtures/epic_issues.json"));
-            $data = json_decode($data, true);
-            $data = new ArrayObject($data);
+            $data = new ArrayObject([]);
             /** @var Mockery::mock $mock */
             $mock->shouldReceive("getEpicIssues")->once()->andReturn($data);
             $mock->shouldReceive('getEpic')->never();
-        }));  
+        }));
 
         $client = App::make(EpicSprintRepository::class);
 
-        $results = $client->getEpicSprintAndInfo("FOO-1842");
-        
+        $client->getEpicSprintAndInfo(['jira_key' => "FOO-1842"]);
+
+        $results = EpicSprintRecord::where("jira_key", "FOO-1842")->first();
+
         $this->assertNotEmpty($results->name);
-        
+
         $this->assertEquals("This Epic Name", $results->name);
-        
+
         $record = EpicSprintRecord::where("jira_key", "FOO-1842")->first();
-
-        $this->assertNotEmpty($record);
-
-    }
-
-    public function testHasIssuesWithEpic() {
-        ///
     }
 
     public function testDefaultEpicGetter()
@@ -96,7 +106,7 @@ class EpicSprintRepositoryTest extends TestCase
         $data = new ArrayObject($data);
         //instantiate
 
-        $this->mock(EpicService::class, function($mock) use ($data) {
+        $this->mock(EpicService::class, function ($mock) use ($data) {
             $mock->shouldReceive("getEpicIssues")->once()->andReturn($data);
         });
 
@@ -105,10 +115,5 @@ class EpicSprintRepositoryTest extends TestCase
         $results = $client->getEpicAndInfo("FOO-1842");
 
         $this->assertNotEmpty($results->getIssues());
-      
-        //get info using jira client
-        //take results and save to db 
-        
     }
-
 }

@@ -4,8 +4,10 @@ namespace App;
 
 use EpicSprintRecords;
 use JiraRestApi\Epic\EpicService;
+use Facades\App\IssuesImport;
+use Illuminate\Support\Arr;
 
-class EpicSprintRepository 
+class EpicSprintRepository
 {
 
     /**
@@ -17,6 +19,8 @@ class EpicSprintRepository
 
     protected $epic;
 
+    protected $payload = [];
+
     protected $issues = [];
 
     public $name = false;
@@ -26,21 +30,28 @@ class EpicSprintRepository
         $this->service = $service;
     }
 
-    public function getEpicSprintAndInfo($id, $type = "epic") {
-        if ($type == "epic") {
-            $this->getEpicType($id);
+    public function getEpicSprintAndInfo($payload)
+    {
+        $this->payload = $payload;
+
+        if ($this->getFromPayload('jira_type', 'epic') == "epic") {
+            $this->getEpicType($this->getFromPayload("jira_key"));
+            $this->issues = $this->getIssuesFromJira();
+            IssuesImport::handle($this);
         }
-        $this->issues = $this->getIssuesFromJira();
+
         return $this;
     }
 
-    protected function getEpicType($id) {
+    protected function getEpicType($id)
+    {
         $this->epic_id = $id;
-        
-        if($record = EpicSprintRecord::where("jira_key", $id)->first()) {
+
+        if ($record = EpicSprintRecord::where("jira_key", $id)->first()) {
             $this->epic = $record;
         } else {
-            $this->epic = $this->getEpicFromJira();
+            $this->epic = $this->getEpicFromJira($id);
+
             EpicSprintRecord::create(
                 [
                     'name' => $this->epic->name,
@@ -48,6 +59,8 @@ class EpicSprintRepository
                     'jira_id' => $this->epic->id,
                     'summary' => $this->epic->summary,
                     'jira_type' => 'epic',
+                    'number_of_devs' => $this->getFromPayload("number_of_devs", 0),
+                    'due_date' => $this->getFromPayload("due_date"),
                     'done' => $this->epic->done
                 ]
             );
@@ -55,25 +68,34 @@ class EpicSprintRepository
 
         $this->setPropertiesBasedOnEpic();
     }
-    
-    protected function setPropertiesBasedOnEpic() {
+
+    protected function getFromPayload($key, $default = null)
+    {
+        return Arr::get($this->payload, $key, $default);
+    }
+
+    protected function setPropertiesBasedOnEpic()
+    {
         $this->name = $this->epic->name;
     }
 
-    protected function getEpicFromJira() {
+    protected function getEpicFromJira()
+    {
         return $this->service->getEpic($this->epic_id);
     }
 
-    protected function getIssuesFromJira() {
+    protected function getIssuesFromJira()
+    {
         return $this->service->getEpicIssues($this->epic_id);
     }
 
-    public function getIssues() {
+    public function getIssues()
+    {
         return $this->issues;
     }
 
-    public function getEpic() {
+    public function getEpic()
+    {
         return $this->epic;
     }
-    
 }

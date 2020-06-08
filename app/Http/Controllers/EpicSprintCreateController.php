@@ -8,21 +8,20 @@ use Illuminate\Support\Facades\Log;
 
 class EpicSprintCreateController extends Controller
 {
-    public function __invoke(Request $request) {
+    public function __invoke(Request $request)
+    {
         $request->validate([
-                'jira_key' => "required",
-                'jira_type' => "required"
-            ]
-        );
+            'jira_key' => "required",
+            'jira_type' => "required"
+        ]);
 
         try {
             /** @var EpicSprintRepository $results */
             $results = EpicSprintRepository::getEpicSprintAndInfo($request->jira_key);
             return response()->json($results->getEpic());
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             Log::error($e);
-            abort(400, $message="Error creating Epic");
+            abort(400, $message = "Error creating Epic");
         }
-
     }
 }

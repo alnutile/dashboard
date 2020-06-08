@@ -1935,6 +1935,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -79490,6 +79499,49 @@ var render = function() {
                               _vm.$set(_vm.form, "jira_key", $$v)
                             },
                             expression: "form.jira_key"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-group",
+                      [
+                        _c("label", { attrs: { for: "due-datepicker" } }, [
+                          _vm._v("Due Date")
+                        ]),
+                        _vm._v(" "),
+                        _c("b-form-datepicker", {
+                          staticClass: "mb-2",
+                          attrs: { id: "due-datepicker" },
+                          model: {
+                            value: _vm.form.due_date,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "due_date", $$v)
+                            },
+                            expression: "form.due_date"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-group",
+                      [
+                        _c("label", { attrs: { for: "devs" } }, [
+                          _vm._v("Number of Devs")
+                        ]),
+                        _vm._v(" "),
+                        _c("b-form-spinbutton", {
+                          attrs: { id: "devs", min: "0", max: "100" },
+                          model: {
+                            value: _vm.form.number_of_devs,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "number_of_devs", $$v)
+                            },
+                            expression: "form.number_of_devs"
                           }
                         })
                       ],

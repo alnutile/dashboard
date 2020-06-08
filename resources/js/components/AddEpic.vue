@@ -18,6 +18,15 @@
                     <b-form-group label="The Key of Item:" label-for="key">
                         <b-form-input id="key" v-model="form.jira_key" placeholder="Enter Key eg FOO-4444"></b-form-input>
                     </b-form-group>
+                    <b-form-group>
+                        <label for="due-datepicker">Due Date</label>
+                        <b-form-datepicker id="due-datepicker" v-model="form.due_date" class="mb-2">
+                        </b-form-datepicker>
+                    </b-form-group>
+                    <b-form-group>
+                        <label for="devs">Number of Devs</label>
+                        <b-form-spinbutton id="devs" v-model="form.number_of_devs" min="0" max="100"></b-form-spinbutton>
+                    </b-form-group>
                     <b-button @click="submit">import</b-button>
                 </b-form>
             </transition>
