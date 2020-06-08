@@ -1,0 +1,6 @@
+{
+    "jira_type": "epic",
+    "jira_key": "FOO-1842",
+    "due_date": "2020-06-30",
+    "devs": 1
+}

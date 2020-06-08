@@ -1,0 +1,638 @@
+{
+  "0": {
+    "expand": "",
+    "id": "10001",
+    "self": "https://your-domain.atlassian.net/rest/agile/1.0/board/92/issue/10001",
+    "key": "HSP-1",
+    "fields": {
+      "timeTracking": {
+        "originalEstimate": "3d",
+        "remainingEstimate": "3d",
+        "originalEstimateSeconds": 86400,
+        "remainingEstimateSeconds": 86400
+      },
+      "flagged": true,
+      "sprint": {
+        "id": 37,
+        "self": "https://your-domain.atlassian.net/rest/agile/1.0/sprint/13",
+        "state": "future",
+        "name": "sprint 2",
+        "goal": "sprint 2 goal"
+      },
+      "closedSprints": [
+        {
+          "id": 37,
+          "self": "https://your-domain.atlassian.net/rest/agile/1.0/sprint/23",
+          "state": "closed",
+          "name": "sprint 1",
+          "startDate": "2015-04-11T15:22:00.000+10:00",
+          "endDate": "2015-04-20T01:22:00.000+10:00",
+          "completeDate": "2015-04-20T11:04:00.000+10:00",
+          "goal": "sprint 1 goal"
+        }
+      ],
+      "description": "example bug report",
+      "project": {
+        "self": "https://your-domain.atlassian.net/rest/api/~ver~/project/EX",
+        "id": "10000",
+        "key": "EX",
+        "name": "Example",
+        "avatarUrls": {
+          "48x48": "https://your-domain.atlassian.net/secure/projectavatar?size=large&pid=10000",
+          "24x24": "https://your-domain.atlassian.net/secure/projectavatar?size=small&pid=10000",
+          "16x16": "https://your-domain.atlassian.net/secure/projectavatar?size=xsmall&pid=10000",
+          "32x32": "https://your-domain.atlassian.net/secure/projectavatar?size=medium&pid=10000"
+        },
+        "projectCategory": {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/projectCategory/10000",
+          "id": "10000",
+          "name": "FIRST",
+          "description": "First Project Category"
+        },
+        "simplified": false,
+        "style": "classic",
+        "insight": {
+          "totalIssueCount": 100,
+          "lastIssueUpdateTime": "2020-05-04T09:05:52.696+0000"
+        }
+      },
+      "comment": [
+        {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/issue/10010/comment/10000",
+          "id": "10000",
+          "author": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper."
+                  }
+                ]
+              }
+            ]
+          },
+          "updateAuthor": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "created": "2020-05-04T09:05:53.512+0000",
+          "updated": "2020-05-04T09:05:53.512+0000",
+          "visibility": {
+            "type": "role",
+            "value": "Administrators"
+          }
+        }
+      ],
+      "epic": {
+        "id": 37,
+        "self": "https://your-domain.atlassian.net/rest/agile/1.0/epic/23",
+        "name": "epic 1",
+        "summary": "epic 1 summary",
+        "color": {
+          "key": "color_4"
+        },
+        "done": true
+      },
+      "worklog": [
+        {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/issue/10010/worklog/10000",
+          "author": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "updateAuthor": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "comment": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "I did some work here."
+                  }
+                ]
+              }
+            ]
+          },
+          "updated": "2020-05-04T09:05:53.516+0000",
+          "visibility": {
+            "type": "group",
+            "value": "jira-developers"
+          },
+          "started": "2020-05-04T09:05:53.515+0000",
+          "timeSpent": "3h 20m",
+          "timeSpentSeconds": 12000,
+          "id": "100028",
+          "issueId": "10002"
+        }
+      ],
+      "updated": 1,
+      "timetracking": {
+        "originalEstimate": "10m",
+        "remainingEstimate": "3m",
+        "timeSpent": "6m",
+        "originalEstimateSeconds": 600,
+        "remainingEstimateSeconds": 200,
+        "timeSpentSeconds": 400
+      }
+    }
+  },
+  "1": {
+    "expand": "",
+    "id": "10002",
+    "self": "https://your-domain.atlassian.net/rest/agile/1.0/board/92/issue/10001",
+    "key": "HSP-3",
+    "fields": {
+      "timeTracking": {
+        "originalEstimate": "5d",
+        "remainingEstimate": "5d",
+        "originalEstimateSeconds": 144000,
+        "remainingEstimateSeconds": 144000
+      },
+      "flagged": true,
+      "sprint": {
+        "id": 37,
+        "self": "https://your-domain.atlassian.net/rest/agile/1.0/sprint/13",
+        "state": "future",
+        "name": "sprint 2",
+        "goal": "sprint 2 goal"
+      },
+      "closedSprints": [
+        {
+          "id": 37,
+          "self": "https://your-domain.atlassian.net/rest/agile/1.0/sprint/23",
+          "state": "closed",
+          "name": "sprint 1",
+          "startDate": "2015-04-11T15:22:00.000+10:00",
+          "endDate": "2015-04-20T01:22:00.000+10:00",
+          "completeDate": "2015-04-20T11:04:00.000+10:00",
+          "goal": "sprint 1 goal"
+        }
+      ],
+      "description": "example bug report",
+      "project": {
+        "self": "https://your-domain.atlassian.net/rest/api/~ver~/project/EX",
+        "id": "10000",
+        "key": "EX",
+        "name": "Example",
+        "avatarUrls": {
+          "48x48": "https://your-domain.atlassian.net/secure/projectavatar?size=large&pid=10000",
+          "24x24": "https://your-domain.atlassian.net/secure/projectavatar?size=small&pid=10000",
+          "16x16": "https://your-domain.atlassian.net/secure/projectavatar?size=xsmall&pid=10000",
+          "32x32": "https://your-domain.atlassian.net/secure/projectavatar?size=medium&pid=10000"
+        },
+        "projectCategory": {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/projectCategory/10000",
+          "id": "10000",
+          "name": "FIRST",
+          "description": "First Project Category"
+        },
+        "simplified": false,
+        "style": "classic",
+        "insight": {
+          "totalIssueCount": 100,
+          "lastIssueUpdateTime": "2020-05-04T09:05:52.696+0000"
+        }
+      },
+      "comment": [
+        {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/issue/10010/comment/10000",
+          "id": "10000",
+          "author": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper."
+                  }
+                ]
+              }
+            ]
+          },
+          "updateAuthor": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "created": "2020-05-04T09:05:53.512+0000",
+          "updated": "2020-05-04T09:05:53.512+0000",
+          "visibility": {
+            "type": "role",
+            "value": "Administrators"
+          }
+        }
+      ],
+      "epic": {
+        "id": 37,
+        "self": "https://your-domain.atlassian.net/rest/agile/1.0/epic/23",
+        "name": "epic 1",
+        "summary": "epic 1 summary",
+        "color": {
+          "key": "color_4"
+        },
+        "done": true
+      },
+      "worklog": [
+        {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/issue/10010/worklog/10000",
+          "author": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "updateAuthor": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "comment": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "I did some work here."
+                  }
+                ]
+              }
+            ]
+          },
+          "updated": "2020-05-04T09:05:53.516+0000",
+          "visibility": {
+            "type": "group",
+            "value": "jira-developers"
+          },
+          "started": "2020-05-04T09:05:53.515+0000",
+          "timeSpent": "3h 20m",
+          "timeSpentSeconds": 12000,
+          "id": "100028",
+          "issueId": "10002"
+        }
+      ],
+      "updated": 1,
+      "timetracking": {
+        "originalEstimate": "10m",
+        "remainingEstimate": "3m",
+        "timeSpent": "6m",
+        "originalEstimateSeconds": 600,
+        "remainingEstimateSeconds": 200,
+        "timeSpentSeconds": 400
+      }
+    }
+  },
+  "2": {
+    "expand": "",
+    "id": "10003",
+    "self": "https://your-domain.atlassian.net/rest/agile/1.0/board/92/issue/10001",
+    "key": "HSP-3",
+    "fields": {
+      "timeTracking": {
+        "originalEstimate": "1d",
+        "remainingEstimate": "1d",
+        "originalEstimateSeconds": 28800,
+        "remainingEstimateSeconds": 28800
+      },
+      "flagged": true,
+      "sprint": {
+        "id": 37,
+        "self": "https://your-domain.atlassian.net/rest/agile/1.0/sprint/13",
+        "state": "future",
+        "name": "sprint 2",
+        "goal": "sprint 2 goal"
+      },
+      "closedSprints": [
+        {
+          "id": 37,
+          "self": "https://your-domain.atlassian.net/rest/agile/1.0/sprint/23",
+          "state": "closed",
+          "name": "sprint 1",
+          "startDate": "2015-04-11T15:22:00.000+10:00",
+          "endDate": "2015-04-20T01:22:00.000+10:00",
+          "completeDate": "2015-04-20T11:04:00.000+10:00",
+          "goal": "sprint 1 goal"
+        }
+      ],
+      "description": "example bug report",
+      "project": {
+        "self": "https://your-domain.atlassian.net/rest/api/~ver~/project/EX",
+        "id": "10000",
+        "key": "EX",
+        "name": "Example",
+        "avatarUrls": {
+          "48x48": "https://your-domain.atlassian.net/secure/projectavatar?size=large&pid=10000",
+          "24x24": "https://your-domain.atlassian.net/secure/projectavatar?size=small&pid=10000",
+          "16x16": "https://your-domain.atlassian.net/secure/projectavatar?size=xsmall&pid=10000",
+          "32x32": "https://your-domain.atlassian.net/secure/projectavatar?size=medium&pid=10000"
+        },
+        "projectCategory": {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/projectCategory/10000",
+          "id": "10000",
+          "name": "FIRST",
+          "description": "First Project Category"
+        },
+        "simplified": false,
+        "style": "classic",
+        "insight": {
+          "totalIssueCount": 100,
+          "lastIssueUpdateTime": "2020-05-04T09:05:52.696+0000"
+        }
+      },
+      "comment": [
+        {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/issue/10010/comment/10000",
+          "id": "10000",
+          "author": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper."
+                  }
+                ]
+              }
+            ]
+          },
+          "updateAuthor": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "created": "2020-05-04T09:05:53.512+0000",
+          "updated": "2020-05-04T09:05:53.512+0000",
+          "visibility": {
+            "type": "role",
+            "value": "Administrators"
+          }
+        }
+      ],
+      "epic": {
+        "id": 37,
+        "self": "https://your-domain.atlassian.net/rest/agile/1.0/epic/23",
+        "name": "epic 1",
+        "summary": "epic 1 summary",
+        "color": {
+          "key": "color_4"
+        },
+        "done": true
+      },
+      "worklog": [
+        {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/issue/10010/worklog/10000",
+          "author": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "updateAuthor": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "comment": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "I did some work here."
+                  }
+                ]
+              }
+            ]
+          },
+          "updated": "2020-05-04T09:05:53.516+0000",
+          "visibility": {
+            "type": "group",
+            "value": "jira-developers"
+          },
+          "started": "2020-05-04T09:05:53.515+0000",
+          "timeSpent": "3h 20m",
+          "timeSpentSeconds": 12000,
+          "id": "100028",
+          "issueId": "10002"
+        }
+      ],
+      "updated": 1,
+      "timetracking": {
+        "originalEstimate": "10m",
+        "remainingEstimate": "3m",
+        "timeSpent": "6m",
+        "originalEstimateSeconds": 600,
+        "remainingEstimateSeconds": 200,
+        "timeSpentSeconds": 400
+      }
+    }
+  },
+  "3": {
+    "expand": "",
+    "id": "10004",
+    "self": "https://your-domain.atlassian.net/rest/agile/1.0/board/92/issue/10001",
+    "key": "HSP-4",
+    "fields": {
+      "timeTracking": {
+        "originalEstimate": "1d",
+        "remainingEstimate": "1d",
+        "originalEstimateSeconds": 28800,
+        "remainingEstimateSeconds": 28800
+      },
+      "flagged": true,
+      "sprint": {
+        "id": 37,
+        "self": "https://your-domain.atlassian.net/rest/agile/1.0/sprint/13",
+        "state": "future",
+        "name": "sprint 2",
+        "goal": "sprint 2 goal"
+      },
+      "closedSprints": [
+        {
+          "id": 37,
+          "self": "https://your-domain.atlassian.net/rest/agile/1.0/sprint/23",
+          "state": "closed",
+          "name": "sprint 1",
+          "startDate": "2015-04-11T15:22:00.000+10:00",
+          "endDate": "2015-04-20T01:22:00.000+10:00",
+          "completeDate": "2015-04-20T11:04:00.000+10:00",
+          "goal": "sprint 1 goal"
+        }
+      ],
+      "description": "example bug report",
+      "project": {
+        "self": "https://your-domain.atlassian.net/rest/api/~ver~/project/EX",
+        "id": "10000",
+        "key": "EX",
+        "name": "Example",
+        "avatarUrls": {
+          "48x48": "https://your-domain.atlassian.net/secure/projectavatar?size=large&pid=10000",
+          "24x24": "https://your-domain.atlassian.net/secure/projectavatar?size=small&pid=10000",
+          "16x16": "https://your-domain.atlassian.net/secure/projectavatar?size=xsmall&pid=10000",
+          "32x32": "https://your-domain.atlassian.net/secure/projectavatar?size=medium&pid=10000"
+        },
+        "projectCategory": {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/projectCategory/10000",
+          "id": "10000",
+          "name": "FIRST",
+          "description": "First Project Category"
+        },
+        "simplified": false,
+        "style": "classic",
+        "insight": {
+          "totalIssueCount": 100,
+          "lastIssueUpdateTime": "2020-05-04T09:05:52.696+0000"
+        }
+      },
+      "comment": [
+        {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/issue/10010/comment/10000",
+          "id": "10000",
+          "author": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "body": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper."
+                  }
+                ]
+              }
+            ]
+          },
+          "updateAuthor": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "created": "2020-05-04T09:05:53.512+0000",
+          "updated": "2020-05-04T09:05:53.512+0000",
+          "visibility": {
+            "type": "role",
+            "value": "Administrators"
+          }
+        }
+      ],
+      "epic": {
+        "id": 37,
+        "self": "https://your-domain.atlassian.net/rest/agile/1.0/epic/23",
+        "name": "epic 1",
+        "summary": "epic 1 summary",
+        "color": {
+          "key": "color_4"
+        },
+        "done": true
+      },
+      "worklog": [
+        {
+          "self": "https://your-domain.atlassian.net/rest/api/~ver~/issue/10010/worklog/10000",
+          "author": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "updateAuthor": {
+            "self": "https://your-domain.atlassian.net/rest/api/~ver~/user?accountId=5b10a2844c20165700ede21g",
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Mia Krystof",
+            "active": false
+          },
+          "comment": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "I did some work here."
+                  }
+                ]
+              }
+            ]
+          },
+          "updated": "2020-05-04T09:05:53.516+0000",
+          "visibility": {
+            "type": "group",
+            "value": "jira-developers"
+          },
+          "started": "2020-05-04T09:05:53.515+0000",
+          "timeSpent": "3h 20m",
+          "timeSpentSeconds": 12000,
+          "id": "100028",
+          "issueId": "10002"
+        }
+      ],
+      "updated": 1,
+      "timetracking": {
+        "originalEstimate": "10m",
+        "remainingEstimate": "3m",
+        "timeSpent": "6m",
+        "originalEstimateSeconds": 600,
+        "remainingEstimateSeconds": 200,
+        "timeSpentSeconds": 400
+      }
+    }
+  }
+}
