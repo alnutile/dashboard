@@ -1939,18 +1939,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
   },
   data: function data() {
     return {
-      add_jira: false,
       form: {
         jira_type: null
       },
@@ -79426,135 +79420,103 @@ var render = function() {
   return _c("section", [
     _c(
       "div",
-      { staticClass: "card-header" },
-      [
-        _c(
-          "b-button",
-          {
-            attrs: { variant: "outline-primary" },
-            on: { click: _vm.addJiraShow }
-          },
-          [_vm._v("Add Epic or Story")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
       { staticClass: "card-body" },
       [
         _c(
-          "transition",
-          { attrs: { name: "fade" } },
+          "b-form",
+          { on: { submit: _vm.submit } },
           [
-            _vm.add_jira
-              ? _c(
-                  "b-form",
-                  { on: { submit: _vm.submit } },
-                  [
-                    _c(
-                      "b-form-group",
-                      {
-                        attrs: {
-                          id: "input-group-1",
-                          label: "Select Type of JIRA Ticket to Import:",
-                          "label-for": "jira_type",
-                          description: "Epic or Story"
-                        }
-                      },
-                      [
-                        _c("b-form-select", {
-                          attrs: {
-                            id: "jira_type",
-                            options: _vm.type_options,
-                            placeholder: "select type"
-                          },
-                          model: {
-                            value: _vm.form.jira_type,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "jira_type", $$v)
-                            },
-                            expression: "form.jira_type"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-group",
-                      {
-                        attrs: { label: "The Key of Item:", "label-for": "key" }
-                      },
-                      [
-                        _c("b-form-input", {
-                          attrs: {
-                            id: "key",
-                            placeholder: "Enter Key eg FOO-4444"
-                          },
-                          model: {
-                            value: _vm.form.jira_key,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "jira_key", $$v)
-                            },
-                            expression: "form.jira_key"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-group",
-                      [
-                        _c("label", { attrs: { for: "due-datepicker" } }, [
-                          _vm._v("Due Date")
-                        ]),
-                        _vm._v(" "),
-                        _c("b-form-datepicker", {
-                          staticClass: "mb-2",
-                          attrs: { id: "due-datepicker" },
-                          model: {
-                            value: _vm.form.due_date,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "due_date", $$v)
-                            },
-                            expression: "form.due_date"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-group",
-                      [
-                        _c("label", { attrs: { for: "devs" } }, [
-                          _vm._v("Number of Devs")
-                        ]),
-                        _vm._v(" "),
-                        _c("b-form-spinbutton", {
-                          attrs: { id: "devs", min: "0", max: "100" },
-                          model: {
-                            value: _vm.form.number_of_devs,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "number_of_devs", $$v)
-                            },
-                            expression: "form.number_of_devs"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("b-button", { on: { click: _vm.submit } }, [
-                      _vm._v("import")
-                    ])
-                  ],
-                  1
-                )
-              : _vm._e()
+            _c(
+              "b-form-group",
+              {
+                attrs: {
+                  id: "input-group-1",
+                  label: "Select Type of JIRA Ticket to Import:",
+                  "label-for": "jira_type",
+                  description: "Epic or Story"
+                }
+              },
+              [
+                _c("b-form-select", {
+                  attrs: {
+                    id: "jira_type",
+                    options: _vm.type_options,
+                    placeholder: "select type"
+                  },
+                  model: {
+                    value: _vm.form.jira_type,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "jira_type", $$v)
+                    },
+                    expression: "form.jira_type"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-form-group",
+              { attrs: { label: "The Key of Item:", "label-for": "key" } },
+              [
+                _c("b-form-input", {
+                  attrs: { id: "key", placeholder: "Enter Key eg FOO-4444" },
+                  model: {
+                    value: _vm.form.jira_key,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "jira_key", $$v)
+                    },
+                    expression: "form.jira_key"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-form-group",
+              [
+                _c("label", { attrs: { for: "due-datepicker" } }, [
+                  _vm._v("Due Date")
+                ]),
+                _vm._v(" "),
+                _c("b-form-datepicker", {
+                  staticClass: "mb-2",
+                  attrs: { id: "due-datepicker" },
+                  model: {
+                    value: _vm.form.due_date,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "due_date", $$v)
+                    },
+                    expression: "form.due_date"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-form-group",
+              [
+                _c("label", { attrs: { for: "devs" } }, [
+                  _vm._v("Number of Devs")
+                ]),
+                _vm._v(" "),
+                _c("b-form-spinbutton", {
+                  attrs: { id: "devs", min: "0", max: "100" },
+                  model: {
+                    value: _vm.form.number_of_devs,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "number_of_devs", $$v)
+                    },
+                    expression: "form.number_of_devs"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("b-button", { on: { click: _vm.submit } }, [_vm._v("import")])
           ],
           1
         )

@@ -1,11 +1,7 @@
 <template>
     <section>
-        <div class="card-header">
-           <b-button variant="outline-primary" @click="addJiraShow">Add Epic or Story</b-button> 
-        </div>
         <div class="card-body">
-            <transition name="fade">
-                <b-form @submit="submit" v-if="add_jira">
+                <b-form @submit="submit">
                     <b-form-group
                         id="input-group-1"
                         label="Select Type of JIRA Ticket to Import:"
@@ -29,7 +25,6 @@
                     </b-form-group>
                     <b-button @click="submit">import</b-button>
                 </b-form>
-            </transition>
         </div>
     </section>
 </template>
@@ -41,7 +36,6 @@ export default {
     },
     data() {
         return {
-            add_jira: false,
             form: {
                 jira_type: null
             },
