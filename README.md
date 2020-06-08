@@ -1,5 +1,7 @@
 ## Dashboard
 
+[![Build Status](https://travis-ci.org/alnutile/dashboard.svg?branch=master)](https://travis-ci.org/alnutile/dashboard)
+
 Attempt 103 to get a decent dashboard for JIRA
 
 ![](docs/images/dashboard.png)
